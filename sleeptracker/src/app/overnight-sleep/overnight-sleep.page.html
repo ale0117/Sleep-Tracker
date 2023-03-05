@@ -1,0 +1,95 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Overnight Sleep</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div class="ion-text-center">
+          <ion-text color="secondary">
+            <h3>Log your sleep</h3>
+          </ion-text>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div class="ion-text-center">
+          <div class="ion-text">Start Time:</div>
+          <ion-datetime-button datetime="datetime1"></ion-datetime-button>
+          <ion-modal [keepContentsMounted]="true">
+            <ng-template>
+              <ion-datetime displayFormat="YYYY-MM-DDTHH:mm" id="datetime1" [(ngModel)]="startString"></ion-datetime>
+            </ng-template>
+          </ion-modal>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div class="ion-text-center">
+          <div class="ion-text">End Time:</div>
+          <ion-datetime-button datetime="datetime2"></ion-datetime-button>
+          <ion-modal [keepContentsMounted]="true">
+            <ng-template>
+              <ion-datetime displayFormat="YYYY-MM-DDTHH:mm" id="datetime2" [(ngModel)]="endString"></ion-datetime>
+            </ng-template>
+          </ion-modal>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div class="ion-text-center">Quality of Sleep:</div>
+        <ion-list>
+          <ion-item color="light" lines="none">
+            <ion-select interface="action-sheet" [(ngModel)]="sleepQuality" placeholder="Select sleep quality">
+              <ion-select-option value="1">1: Terrible</ion-select-option>
+              <ion-select-option value="2">2: Poor</ion-select-option>
+              <ion-select-option value="3">3: Okay</ion-select-option>
+              <ion-select-option value="4">4: Good</ion-select-option>
+              <ion-select-option value="5">5: Amazing</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div class="ion-text-center">
+          <ion-button (click)="addSleepLog()">Add</ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+    <div style="width: 100%; border-top: 1px solid #d4d4d4; margin: 8px 0;"></div>
+    <ion-row>
+      <ion-col>
+      <app-datatable title="Sleep Logs" [fields]="columns" [data]="sleepData" (deleteEvent)="removeSleepLog($event)"></app-datatable>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button href="/home" target="_self">
+          <ion-icon name="home"></ion-icon>
+          <ion-label>Home</ion-label>
+        </ion-tab-button>
+        <ion-tab-button href="/overnight-sleep" target="_self">
+          <ion-icon name="bed"></ion-icon>
+          <ion-label>Sleep Log</ion-label>
+        </ion-tab-button>
+        <ion-tab-button href="/daytime-sleepiness" target="_self">
+          <ion-icon name="sad"></ion-icon>
+          <ion-label>Sleepiness Log</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-footer>

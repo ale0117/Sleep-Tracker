@@ -1,0 +1,24 @@
+<div class="ion-text-center">
+	<ion-text color="secondary">
+		<h3>{{title}}</h3>
+	</ion-text>
+</div>
+<table class="table table-responsive">
+	<thead>
+		<tr>
+			<th *ngFor="let field of fields" scope="col">{{field}}</th>
+			<th class="no-padding" scope="col">Delete</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let log of data; let i = index">
+			<td *ngFor="let value of log" style="text-align:center">{{value}}</td>
+			<td class="no-padding">
+				<ion-button fill="outline" color="danger" (click)="remove({i})">
+					<ion-icon slot="start" name="trash-outline"></ion-icon>
+					Remove
+				</ion-button>
+			</td>
+		</tr>
+	</tbody>
+</table>

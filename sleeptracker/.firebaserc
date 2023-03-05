@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "inf133-e8696"
+  },
+  "targets": {
+    "inf133-e8696": {
+      "hosting": {
+        "app": [
+          "inf133-e8696"
+        ]
+      }
+    }
+  }
+}

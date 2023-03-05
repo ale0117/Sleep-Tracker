@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Sleep Tracker 
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title style="font-size: 30px;" color="secondary">Welcome to the Sleep Tracker App</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-text color="dark">
+              We hope you get good sleep and enjoy your experience in this app.
+            </ion-text>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-text color="secondary">
+      <h3 style="margin-left: 20px;">Statistics</h3>
+    </ion-text>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title style="font-size: 20px;">You have {{sleepLogCount}} sleep logs</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-text color="dark">
+              <p>On average, you get {{avgSleepHoursString}} of rest each sleep.</p>
+              <br>
+              <p>Your average sleep quality is {{avgSleepQuality.toFixed(2)}}.</p>
+            </ion-text>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title style="font-size: 20px;">You have {{sleepinessLogCount}} sleepiness logs</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-text color="dark">
+              <p>Your average sleepiness level is {{avgSleepinessLevel.toFixed(2)}}.</p>
+            </ion-text>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button href="/home" target="_self">
+          <ion-icon name="home"></ion-icon>
+          <ion-label>Home</ion-label>
+        </ion-tab-button>
+        <ion-tab-button href="/overnight-sleep" target="_self">
+          <ion-icon name="bed"></ion-icon>
+          <ion-label>Sleep log</ion-label>
+        </ion-tab-button>
+        <ion-tab-button href="/daytime-sleepiness" target="_self">
+          <ion-icon name="sad"></ion-icon>
+          <ion-label>Sleepiness log</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-footer>
